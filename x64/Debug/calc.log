@@ -1,4 +1,5 @@
-﻿  calc.cpp
+﻿  Button.cpp
   Calculator.cpp
+  calc.cpp
   Создание кода...
   calc.vcxproj -> D:\C++\sfml\calc\calc\x64\Debug\calc.exe

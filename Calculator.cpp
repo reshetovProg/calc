@@ -6,6 +6,9 @@
 Calculator::Calculator() : window(sf::VideoMode(WIDTH_W, HEIGHT_W), "Calculator")
 {
 
+	btn = new Button(100, 50, "+", sf::Color(100, 100, 100, 255), sf::Color(255, 255, 255, 255), 20);
+
+
 }
 
 void Calculator::run()
@@ -33,5 +36,6 @@ void Calculator::update()
 void Calculator::render()
 {
 	window.clear();
+	btn->draw(window);
 	window.display();
 }
