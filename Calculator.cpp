@@ -1,7 +1,7 @@
-
-
 #include "Calculator.h"
 #include "SetProject.h"
+#include <iostream>
+
 
 Calculator::Calculator() : window(sf::VideoMode(WIDTH_W, HEIGHT_W), "Calculator")
 {
@@ -23,6 +23,23 @@ void Calculator::processEvents()
 	while (window.pollEvent(event)) {
 		if (event.type == sf::Event::Closed) {
 			window.close();
+		}
+		if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+			for (int i = 0; i < row; i++) {
+				for (int j = 0; j < column; j++) {
+					if (keyboard[i][j]->intersects(sf::Vector2f(event.mouseButton.x, event.mouseButton.y))) {
+						keyboard[i][j]->setColor(sf::Color(0, 255, 0, 25));
+						lastBtn = keyboard[i][j];
+					}
+				}
+			}
+		}
+		if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
+			lastBtn->setColor(buttonBack);
+			if (lastBtn->intersects(sf::Vector2f(event.mouseButton.x, event.mouseButton.y))) {
+				std::string text = lastBtn->getText().getString();
+				std::cout << text;
+			}
 		}
 	}
 }

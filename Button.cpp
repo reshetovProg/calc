@@ -33,7 +33,7 @@ sf::RectangleShape& Button::getRectangle()
 void Button::setPosition(float x, float y)
 {
 	rectangle.setPosition(x, y);
-	text.setPosition(x, y);
+	text.setPosition(x+35, y+25);
 }
 
 void Button::draw(sf::RenderWindow& window)
