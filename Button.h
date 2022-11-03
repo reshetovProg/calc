@@ -11,5 +11,6 @@ public:
 	void draw(sf::RenderWindow& window);
 	sf::Text& getText();
 	sf::RectangleShape& getRectangle();
+	void setPosition(float x, float y);
 };
 

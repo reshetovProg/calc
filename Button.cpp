@@ -13,6 +13,10 @@ Button::Button(float width, float height, std::string str, sf::Color colorBgr, s
 	text.setString(str);
 	text.setFillColor(colorText);
 	text.setCharacterSize(sizeText);
+	rectangle.setOutlineThickness(2);
+	rectangle.setOutlineColor(sf::Color(200, 200, 200, 255));
+
+
 
 }
 
@@ -24,6 +28,12 @@ sf::Text& Button::getText()
 sf::RectangleShape& Button::getRectangle()
 {
 	return rectangle;
+}
+
+void Button::setPosition(float x, float y)
+{
+	rectangle.setPosition(x, y);
+	text.setPosition(x, y);
 }
 
 void Button::draw(sf::RenderWindow& window)

@@ -5,11 +5,9 @@
 
 Calculator::Calculator() : window(sf::VideoMode(WIDTH_W, HEIGHT_W), "Calculator")
 {
-
-	btn = new Button(100, 50, "+", sf::Color(100, 100, 100, 255), sf::Color(255, 255, 255, 255), 20);
-
-
+	createKeyboard();
 }
+
 
 void Calculator::run()
 {
@@ -36,6 +34,25 @@ void Calculator::update()
 void Calculator::render()
 {
 	window.clear();
-	btn->draw(window);
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < column; j++) {
+			keyboard[i][j]->draw(window);
+		}
+	}
 	window.display();
+}
+
+void Calculator::createKeyboard()
+{
+	int btnH = (HEIGHT_W - fieldSize) / row;
+	int btnW = WIDTH_W / column;
+	keyboard = new Button**[row];
+	for (int i = 0; i < row; i++) {
+		keyboard[i] = new Button * [column];
+		for (int j = 0; j < column; j++) {
+			keyboard[i][j] = new Button(btnW, btnH, keySymbol[i][j], buttonBack, colorText, 20);
+			keyboard[i][j]->setPosition(btnW * j, btnH * i + fieldSize);
+		}
+	}
+
 }
