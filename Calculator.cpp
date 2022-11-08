@@ -6,6 +6,7 @@
 Calculator::Calculator() : window(sf::VideoMode(WIDTH_W, HEIGHT_W), "Calculator")
 {
 	createKeyboard();
+	createField();
 }
 
 
@@ -35,10 +36,13 @@ void Calculator::processEvents()
 			}
 		}
 		if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
-			lastBtn->setColor(buttonBack);
-			if (lastBtn->intersects(sf::Vector2f(event.mouseButton.x, event.mouseButton.y))) {
-				std::string text = lastBtn->getText().getString();
-				std::cout << text;
+			if (lastBtn != nullptr) {
+				lastBtn->setColor(buttonBack);
+				if (lastBtn->intersects(sf::Vector2f(event.mouseButton.x, event.mouseButton.y))) {
+					std::string text = lastBtn->getText().getString();
+					std::cout << text;
+				}
+
 			}
 		}
 	}
@@ -56,6 +60,7 @@ void Calculator::render()
 			keyboard[i][j]->draw(window);
 		}
 	}
+	field->draw(window);
 	window.display();
 }
 
@@ -72,4 +77,10 @@ void Calculator::createKeyboard()
 		}
 	}
 
+}
+
+void Calculator::createField()
+{
+	field = new Field(WIDTH_W, fieldSize, "267236812638", colorText, buttonBack, 50);
+	
 }

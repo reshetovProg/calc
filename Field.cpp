@@ -1,10 +1,11 @@
 #include "Calculator.h"
-#include "Button.h"
+#include "Field.h"
 
-Button::Button(float width, float height, std::string str, sf::Color colorBgr, sf::Color colorText, int sizeText) :
+Field::Field(float width, float height, std::string str, sf::Color colorBgr, sf::Color colorText, int sizeText) :
 	rectangle(sf::Vector2f(width, height))
 {
-	
+
+
 	if (!font.loadFromFile("src/fonts/arial.ttf")) {
 		std::cout << "error";
 	}
@@ -15,28 +16,32 @@ Button::Button(float width, float height, std::string str, sf::Color colorBgr, s
 	text.setCharacterSize(sizeText);
 	rectangle.setOutlineThickness(2);
 	rectangle.setOutlineColor(sf::Color(200, 200, 200, 255));
+	setPosition(0, 0);
 
 
 
 }
 
-sf::Text& Button::getText()
+sf::Text& Field::getText()
 {
 	return text;
 }
 
-sf::RectangleShape& Button::getRectangle()
+sf::RectangleShape& Field::getRectangle()
 {
 	return rectangle;
 }
 
-void Button::setPosition(float x, float y)
+void Field::setPosition(float x, float y)
 {
+	float size = text.getCharacterSize();
 	rectangle.setPosition(x, y);
-	text.setPosition(x+35, y+25);
+	text.setPosition(x - size*text.getString().getSize() 
+		/ 1.8 - 15 + rectangle.getSize().x, y + (rectangle.getSize().y 
+			- size) / 2.4);
 }
 
-bool Button::intersects(sf::Vector2f mouse)
+bool Field::intersects(sf::Vector2f mouse)
 {
 	float rX = rectangle.getPosition().x;
 	float rY = rectangle.getPosition().y;
@@ -45,12 +50,12 @@ bool Button::intersects(sf::Vector2f mouse)
 	return ((rX < mouse.x&& mouse.x < (rX + sX)) && ((rY < mouse.y&& mouse.y < (rY + sY))));
 }
 
-void Button::setColor(sf::Color color)
+void Field::setColor(sf::Color color)
 {
 	rectangle.setFillColor(color);
 }
 
-void Button::draw(sf::RenderWindow& window)
+void Field::draw(sf::RenderWindow& window)
 {
 	window.draw(rectangle);
 	window.draw(text);

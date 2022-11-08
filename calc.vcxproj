@@ -142,6 +142,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="calc.cpp" />
     <ClCompile Include="Calculator.cpp" />
+    <ClCompile Include="Field.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -149,6 +150,7 @@
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="Calculator.h" />
+    <ClInclude Include="Field.h" />
     <ClInclude Include="SetProject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

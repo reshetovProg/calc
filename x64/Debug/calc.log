@@ -1,6 +1,21 @@
 ﻿  Button.cpp
   Calculator.cpp
-d:\c++\sfml\calc\calc\calculator.cpp(53): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-d:\c++\sfml\calc\calc\calculator.cpp(54): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+d:\c++\sfml\calc\calc\calculator.cpp(31): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+d:\c++\sfml\calc\calc\calculator.cpp(41): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+d:\c++\sfml\calc\calc\calculator.cpp(75): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+d:\c++\sfml\calc\calc\calculator.cpp(76): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+d:\c++\sfml\calc\calc\calculator.cpp(84): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  Field.cpp
+d:\c++\sfml\calc\calc\field.cpp(37): warning C4244: инициализация: преобразование "unsigned int" в "float", возможна потеря данных
+d:\c++\sfml\calc\calc\field.cpp(40): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+  calc.cpp
   Создание кода...
   calc.vcxproj -> D:\C++\sfml\calc\calc\x64\Debug\calc.exe
