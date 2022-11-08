@@ -12,5 +12,9 @@ public:
 	sf::Text& getText();
 	sf::RectangleShape& getRectangle();
 	void setPosition(float x, float y);
+	bool intersects(sf::Vector2f mouse) { return ((rectangle.getPosition().x < mouse.x&& mouse.x < (rectangle.getPosition().x + rectangle.getSize().x)) && ((rectangle.getPosition().y < mouse.y&& mouse.y < (rectangle.getPosition().y + rectangle.getSize().y)))); }
+	void setColor(sf::Color color) {
+		rectangle.setFillColor(color);
+	}
 };
 
